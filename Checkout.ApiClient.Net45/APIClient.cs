@@ -9,6 +9,8 @@ using Checkout.Helpers;
 
 namespace Checkout
 {
+    using Checkout.ApiServices.ShoppingLists;
+
     public sealed class APIClient
     {
         private TokenService _tokenService;
@@ -18,6 +20,7 @@ namespace Checkout
         private ReportingService _reportingService;
         private LookupsService _lookupsService;
         private RecurringPaymentsService _recurringPaymentsService;
+        private ShoppingListService _shoppingListService;
 
         public ChargeService ChargeService { get { return _chargeService ?? (_chargeService = new ChargeService()); } }
         public CardService CardService { get { return _cardService ?? (_cardService = new CardService()); } }
@@ -26,6 +29,7 @@ namespace Checkout
         public ReportingService ReportingService { get { return _reportingService ?? (_reportingService = new ReportingService()); } }
         public LookupsService LookupsService { get { return _lookupsService ?? (_lookupsService = new LookupsService()); } }
         public RecurringPaymentsService RecurringPaymentsService { get { return _recurringPaymentsService ?? (_recurringPaymentsService = new RecurringPaymentsService()); } }
+        public ShoppingListService ShoppingListService { get { return _shoppingListService ?? (_shoppingListService = new ShoppingListService()); } }
 
         public APIClient()
         {

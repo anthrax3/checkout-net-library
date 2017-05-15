@@ -13,6 +13,8 @@ using FilterAction = Checkout.ApiServices.SharedModels.Action;
 
 namespace Tests
 {
+    using Checkout.ApiServices.ShoppingLists.RequestModels;
+
     public class TestHelper
     {
         private static RandomData _randomData;
@@ -633,7 +635,7 @@ namespace Tests
         }
 
         #endregion
-
+        
         /// <summary>
         /// Masks a card number to query transactions
         /// eg: 4242424242424242 -> 424242******4242

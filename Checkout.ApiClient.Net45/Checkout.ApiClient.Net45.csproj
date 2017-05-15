@@ -118,6 +118,12 @@
     <Compile Include="ApiServices\SharedModels\Phone.cs" />
     <Compile Include="ApiServices\SharedModels\SortColumn.cs" />
     <Compile Include="ApiServices\SharedModels\SortOrder.cs" />
+    <Compile Include="ApiServices\ShoppingLists\RequestModels\ItemCreate.cs" />
+    <Compile Include="ApiServices\ShoppingLists\RequestModels\ItemQuantityUpdate.cs" />
+    <Compile Include="ApiServices\ShoppingLists\ResponseModels\BaseResponse.cs" />
+    <Compile Include="ApiServices\ShoppingLists\ResponseModels\ShoppingList.cs" />
+    <Compile Include="ApiServices\ShoppingLists\ResponseModels\ShoppingListItem.cs" />
+    <Compile Include="ApiServices\ShoppingLists\ShoppingListService.cs" />
     <Compile Include="ApiServices\Tokens\RequestModels\VisaCheckoutTokenCreate.cs" />
     <Compile Include="ApiServices\Tokens\ResponseModels\CardTokenResponse.cs" />
     <Compile Include="ApiServices\Tokens\RequestModels\PaymentTokenUpdate.cs" />

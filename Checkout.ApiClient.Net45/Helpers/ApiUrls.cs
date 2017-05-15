@@ -37,6 +37,12 @@
         private static string _recurringCustomerPaymentPlanApiUri;
         private static string _visaCheckout;
 
+        private static string _shoppingListItemsApiUri;
+        private static string _shoppingListItemApiUri;
+        private static string _shoppingListItemCreateApiUri;
+        private static string _shoppingListItemDeleteApiUri;
+        private static string _shoppingListItemQuantityUpdateApiUri;
+
         public static void ResetApiUrls()
         {
             _cardTokensApiUri = null;
@@ -68,6 +74,12 @@
             _recurringCustomerPaymentPlanSearchApiUri = null;
             _recurringCustomerPaymentPlanApiUri = null;
             _localPaymentChargesApiUri = null;
+
+            _shoppingListItemsApiUri = null;
+            _shoppingListItemApiUri = null;
+            _shoppingListItemCreateApiUri = null;
+            _shoppingListItemDeleteApiUri = null;
+            _shoppingListItemQuantityUpdateApiUri = null;
         }
 
         public static string Charges
@@ -182,5 +194,37 @@
                 _recurringCustomerPaymentPlanApiUri ??
                 (_recurringCustomerPaymentPlanApiUri =
                     string.Concat(AppSettings.BaseApiUri, "/recurringPayments/customers/{0}"));
+
+        public static string ShoppingListItems
+            =>
+                _shoppingListItemsApiUri ??
+                (_shoppingListItemsApiUri =
+                     string.Concat(AppSettings.BaseApiUri, "/shoppingLists/{0}/items"));
+
+        public static string ShoppingListItem
+            =>
+                _shoppingListItemApiUri ??
+                (_shoppingListItemApiUri =
+                     string.Concat(AppSettings.BaseApiUri, "/shoppingLists/{0}/items/{1}"));
+
+
+        public static string ShoppingListItemCreate
+            =>
+                _shoppingListItemCreateApiUri ??
+                (_shoppingListItemCreateApiUri =
+                     string.Concat(AppSettings.BaseApiUri, "/shoppingLists/{0}/items"));
+
+        public static string ShoppingListItemDelete
+            =>
+                _shoppingListItemDeleteApiUri ??
+                (_shoppingListItemDeleteApiUri =
+                     string.Concat(AppSettings.BaseApiUri, "/shoppingLists/{0}/items/{1}"));
+
+        public static string ShoppingListItemQuantityUpdate
+            =>
+                _shoppingListItemQuantityUpdateApiUri ??
+                (_shoppingListItemQuantityUpdateApiUri =
+                     string.Concat(AppSettings.BaseApiUri, "/shoppingLists/{0}/items/{1}"));
+
     }
 }

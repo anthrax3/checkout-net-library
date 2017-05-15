@@ -194,7 +194,7 @@ namespace Checkout
                     }
                 }
 
-                response = Task.FromResult(CreateHttpResponse<T>(responseAsString, responseMessage.StatusCode));
+                response = Task.FromResult(CreateHttpResponse<T>(responseAsString, responseMessage.StatusCode, responseMessage.Headers));
             }
             catch (Exception ex)
             {
@@ -217,13 +217,14 @@ namespace Checkout
             return response;
         }
 
-        private HttpResponse<T> CreateHttpResponse<T>(string responseAsString, HttpStatusCode httpStatusCode)
+        private HttpResponse<T> CreateHttpResponse<T>(string responseAsString, HttpStatusCode httpStatusCode, HttpResponseHeaders headers)
         {
-            if (httpStatusCode == HttpStatusCode.OK && responseAsString != null)
+            if ((httpStatusCode == HttpStatusCode.OK || httpStatusCode == HttpStatusCode.Created || httpStatusCode == HttpStatusCode.NotFound) && responseAsString != null)
             {
                 return new HttpResponse<T>(GetResponseAsObject<T>(responseAsString))
                 {
-                    HttpStatusCode = httpStatusCode
+                    HttpStatusCode = httpStatusCode,
+                    Headers = headers
                 };
             }
             else if (responseAsString != null)
